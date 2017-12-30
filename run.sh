@@ -1,7 +1,15 @@
 #!/bin/bash
 
 set -euo pipefail
+set -x
 
 image="audy/mapcrafter"
 
-docker run -ti ${image}
+./build.sh
+
+docker \
+  run \
+  -ti \
+  --volume /root/falafel/falafel/world:/world \
+  --volume /root/caddy/static/falafel.space:/render \
+  "${image}"

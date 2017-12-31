@@ -2,6 +2,8 @@
 
 Render https://falafel.space map using MapCrafter.
 
+- [Server Data](https://github.com/audy/falafel.space)
+
 ## Usage
 
 ```sh

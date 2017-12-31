@@ -1,14 +1,18 @@
 #!/bin/bash
 
-set -euo pipefail
-
 image="audy/mapcrafter"
+
+source /root/.secrets
+source /root/.aliases
+
+pushover "🥙 render starting!"
 
 /usr/bin/docker \
   run \
-  --detach \
   --rm \
   --name falafel-render \
   --volume /root/falafel/falafel/world:/world \
   --volume /root/caddy/static/falafel.space:/render \
   "${image}"
+
+pushover "🥙 render complete!"
